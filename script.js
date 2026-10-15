@@ -6,7 +6,7 @@
   /* ===== 1. SETTINGS ===== */
   // Address of your FastAPI server. Start it with:  uvicorn main:app --reload
   // Change this one line if the API runs somewhere else.
-  const API_BASE_URL = "http://127.0.0.1:8000";
+  const API_BASE_URL = "https://manasik-score-model.onrender.com";
 
   /* ===== 2. THE TABLE FIELDS =====
      "key" is the exact field name main.py expects.
