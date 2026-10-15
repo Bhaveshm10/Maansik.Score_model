@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bhavesh&rsquo;s First Model | MindPulse AI</title>
+<meta name="description" content="Enter your daily habits and see a score predicted by a trained model. Awareness, not diagnosis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#inputs">Skip to the inputs table</a>
+<div class="app">
+  <header class="top">
+    <a class="logo" href="#overview"><span class="mark"></span>MindPulse AI</a>
+    <nav class="tabs" aria-label="Main">
+      <a href="#overview" class="on">Overview</a>
+      <a href="#inputs">Assessment</a>
+      <a href="#result">Result</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <div class="title-row" id="overview">
+    <div>
+      <h1><span class="credit">Bhavesh&rsquo;s First Model</span><span class="h1-sub">AI Mental Health</span></h1>
+      <p class="muted">Enter your daily habits and a trained model predicts a score. Awareness, not diagnosis.</p>
+    </div>
+    <div class="title-actions no-print">
+      <button type="button" class="pill pill-main">Run Prediction</button>
+      <button type="button" class="pill" id="clearBtn">Clear form</button>
+    </div>
+  </div>
+
+  <main class="grid">
+    <!-- One table with every feature -->
+    <section class="card c-inputs" id="inputs" aria-labelledby="t-inputs">
+      <h2 id="t-inputs">Your inputs</h2>
+      <form id="assess" novalidate>
+        <table>
+          <thead><tr><th scope="col">Feature</th><th scope="col">Your answer</th><th scope="col">Accepted</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <button type="submit" class="pill cta run">Run Prediction</button>
+      </form>
+    </section>
+
+    <!-- Model result -->
+    <section class="card c-score" id="result" aria-labelledby="t-score">
+      <h2 id="t-score">Model score</h2>
+      <div class="ring" id="ring"><span id="score">--</span></div>
+      <p class="status" id="status" role="status">No result yet. Fill in the table and press Run Prediction.</p>
+      <p class="status warn" id="stale" hidden>Your inputs changed after this result. Run the prediction again.</p>
+      <p class="fe" id="apiErr" role="alert"></p>
+      <div class="row-actions no-print">
+        <button type="button" class="pill" id="retryBtn" hidden>Retry</button>
+        <span class="row-actions" id="resultActions" hidden>
+          <button type="button" class="pill" id="copyBtn">Copy summary</button>
+          <button type="button" class="pill" id="printBtn">Print</button>
+        </span>
+      </div>
+    </section>
+
+    <!-- Live view of the hours the user typed in -->
+    <section class="card c-day" aria-labelledby="t-day">
+      <h2 id="t-day">Your 24 hours</h2>
+      <div class="stack" id="stack" aria-hidden="true"></div>
+      <ul class="legend" id="legend"></ul>
+      <p class="status" id="dayNote"></p>
+    </section>
+
+    <section class="card c-help" aria-labelledby="t-help">
+      <h2 id="t-help">Next steps</h2>
+      <p class="muted">General guidance. The model does not generate it.</p>
+      <ul class="tips">
+        <li class="t1"><strong>Talk to someone you trust</strong><span>A friend, family member or mentor is a good first step.</span></li>
+        <li class="t2"><strong>Consider a professional</strong><span>A counsellor or doctor can assess how you are doing. This tool cannot.</span></li>
+        <li class="t3"><strong>Need help now?</strong><span>This site is not an emergency service. Call your local emergency number. India: Tele-MANAS, 14416. Elsewhere: <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a>.</span></li>
+      </ul>
+    </section>
+
+    <section class="card c-about" id="about" aria-labelledby="t-about">
+      <h2 id="t-about">About this tool</h2>
+      <details open><summary>Is this a diagnosis?</summary><p>No. It is a machine-learning prediction that can be wrong or incomplete. It never replaces an assessment by a qualified professional.</p></details>
+      <details><summary>What does the score mean?</summary><p>The model returns one number. Its scale and direction are not defined in the API, so this page does not interpret it.</p></details>
+      <details><summary>How accurate is it?</summary><p>No accuracy or clinical validation figures were provided, so none are shown.</p></details>
+      <details><summary>Where do my answers go?</summary><p>To the API address set in script.js. This page does not save them. Ask whoever hosts the server how requests are logged.</p></details>
+    </section>
+  </main>
+
+  <footer class="foot">MindPulse AI is not a medical device or an emergency service.</footer>
+</div>
+<div id="toasts" role="status" aria-live="polite"></div>
+</body>
+</html>
